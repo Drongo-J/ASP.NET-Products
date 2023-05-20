@@ -1,0 +1,113 @@
+
+
+/*
+*
+* ==========================================
+* FOOTER
+* ==========================================
+*
+*/
+.footer-link {
+    font-size: 0.85rem;
+    position: relative;
+    color: #999 !important;
+    transition: all 0.3s;
+}
+
+.footer-link:hover, .footer-link:focus {
+    padding-left: 0.6rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-link:hover::before, .footer-link:focus::before {
+    opacity: 1; 
+}
+
+.footer-link::before {
+    content: '-';
+    display: inline-block;
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #fff;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+/*
+*
+* ==========================================
+* PRODUCT
+* ==========================================
+*
+*/
+.product img {
+    filter: grayscale(40%);
+    transition: all 0.3s;
+}
+
+.product-overlay {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1rem 0;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+    .product-overlay ul li {
+        transition: all 0.3s;
+    }
+
+        .product-overlay ul li:first-of-type {
+            transform: translateX(-10px);
+            opacity: 0;
+        }
+
+        .product-overlay ul li:last-of-type {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+
+.product:hover img {
+    opacity: 0.3;
+}
+
+.product:hover .product-overlay {
+    opacity: 1;
+}
+
+    .product:hover .product-overlay li {
+        opacity: 1;
+        transform: none;
+    }
+
+.product .badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+}
+
+.reset-anchor {
+    color: inherit;
+    transition: all 0.3s;
+}
+
+    .reset-anchor:hover, .reset-anchor:focus {
+        text-decoration: none;
+    }
+
+
+.svg-icon-big {
+    width: 64px !important;
+    height: 64px !important;
+}

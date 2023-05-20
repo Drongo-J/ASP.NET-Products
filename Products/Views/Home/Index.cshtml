@@ -1,0 +1,170 @@
+﻿@model ProductListViewModel;
+
+@{
+    ViewData["Title"] = "Home Page | Task 3 | ASP.NET | aykhan.net";
+}
+
+<!-- Google fonts-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;800&amp;display=swap">
+@*Font Awesome*@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<section class="hero pb-3 bg-cover bg-center d-flex align-items-center">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="text-muted small text-uppercase mb-2">New Inspiration 2020</p>
+            <h1 class="h2 text-uppercase mb-3">20% off on new season</h1><a class="btn btn-dark" href="#">Browse collections</a>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid" src="https://res.cloudinary.com/dbriqxpaa/image/upload/v1684239104/asp-net/task3/hero-banner-alt_go6phh.jpg" />
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <header>
+        <p class="small text-muted small text-uppercase mb-1">Made the hard way</p>
+        <h2 class="h5 text-uppercase mb-4">Top trending products</h2>
+    </header>
+    <div class="row">
+        @foreach (var product in Model.Products)
+        {
+            <!-- PRODUCT-->
+            <div class="col-xl-3 col-lg-4 col-sm-6 mt-5">
+                <div class="product text-center border">
+                    <div class="position-relative mb-3" style="max-height: 300px; height: 300px; overflow: hidden; display: flex; align-items: center;">
+                        <div class="badge text-white bg-"></div>
+                        <a href="/home/products/@product.Id" style="overflow: hidden; width: 100%;">
+                            <img class="img-fluid w-100 mx-auto product-image" src="@product.ThumbnailURL" alt="@product.Title" style="display: block; margin: auto;">
+                        </a>
+                        <div class="product-overlay">
+                            <ul class="mb-0 list-inline">
+                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="#">Add to cart</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h6><a class="reset-anchor" href="/home/products/@product.Id">@product.Title</a></h6>
+                    <p class="small text-muted">$@product.Price</p>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center gy-3">
+            <div class="col-lg-4">
+                <div class="d-inline-block">
+                    <div class="d-flex align-items-end">
+                        <svg class="svg-icon svg-icon-big svg-icon-light" style="transform:scale(0.7)">
+                            <use xlink:href="#delivery-time-1" > </use>
+                        </svg>
+                        <div class="text-start ms-3">
+                            <h6 class="text-uppercase mb-1">free shipping</h6>
+                            <p class="text-sm mb-0 text-muted">free shipping worldwide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-inline-block">
+                    <div class="d-flex align-items-end">
+                        <svg class="svg-icon svg-icon-big svg-icon-light" style="transform:scale(0.7)">
+                            <use xlink:href="#helpline-24h-1"> </use>
+                        </svg>
+                        <div class="text-start ms-3">
+                            <h6 class="text-uppercase mb-1">24 x 7 service</h6>
+                            <p class="text-sm mb-0 text-muted">free shipping worldwide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-inline-block">
+                    <div class="d-flex align-items-end">
+                        <svg class="svg-icon svg-icon-big svg-icon-light" style="transform:scale(0.7)">
+                            <use xlink:href="#label-tag-1" > </use>
+                        </svg>  
+                        <div class="text-start ms-3">
+                            <h6 class="text-uppercase mb-1">festivaloffers</h6>
+                            <p class="text-sm mb-0 text-muted">free shipping worldwide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEWSLETTER-->
+<section class="py-5">
+    <div class="container p-0">
+        <div class="row gy-3">
+            <div class="col-lg-6">
+                <h5 class="text-uppercase">Let's be friends!</h5>
+                <p class="text-sm text-muted mb-0">Nisi nisi tempor consequat laboris nisi.</p>
+            </div>
+            <div class="col-lg-6">
+                <form action="#">
+                    <div class="input-group">
+                        <input class="form-control form-control-lg" type="email" placeholder="Enter your email address" aria-describedby="button-addon2">
+                        <button class="btn btn-dark" id="button-addon2" type="submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<svg width="0" height="0" class="hidden">
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="delivery-time-1">
+        <title>Delivery Time</title>
+        <desc>A line styled icon from Orion Icon Library.</desc>
+        <path data-name="layer2"
+              fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" d="M62 46v-5l-8-7h-8"
+              stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        <circle data-name="layer2" cx="24" cy="54" r="4" fill="none" stroke="#202020"
+                stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+                style="stroke:var(--layer1, #202020)"></circle>
+        <circle data-name="layer2" cx="54" cy="54" r="4" fill="none"
+                stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+                stroke-linecap="round" style="stroke:var(--layer1, #202020)"></circle>
+        <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
+              stroke-width="2" d="M50 54H28m-8 0h-4v-8h46v8h-4M24.5 24H46v22m-30 0V29.8M2 38h6m-2 8h2"
+              stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        <circle data-name="layer1" cx="14" cy="18" r="12" fill="none" stroke="#202020"
+                stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+                style="stroke:var(--layer1, #202020)"></circle>
+        <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10"
+              stroke-width="2" d="M14 12v8h6" stroke-linejoin="round" stroke-linecap="round"
+              style="stroke:var(--layer1, #202020)"></path>
+    </symbol>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="helpline-24h-1">
+        <path data-name="layer2"
+              d="M52.3 48.8c1.2.8 3 1.9 2.7 4.3S51 62 43 62s-17.7-6.3-26.2-14.8S2 28.9 2 21 9 9.3 10.9 9s3.6 1.5 4.3 2.7l6 9.2a4.3 4.3 0 0 1-1.1 5.8c-2.6 2.1-6.8 4.6 2.9 14.3s12.3 5.4 14.3 2.9a4.3 4.3 0 0 1 5.8-1.1z"
+              fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+              stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10"
+              stroke-width="2" d="M54 2l-6 14h14m-4-6v12m-14 0H32l8.5-10v-.2A6 6 0 0 0 32 3.6"
+              stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="label-tag-1">
+        <title>Label Tag</title>
+        <desc>A line styled icon from Orion Icon Library.</desc>
+        <path data-name="layer2"
+              fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" d="M25.6 61L3 38.4 38.4 3l21.2 1.4L61 25.6 25.6 61z"
+              stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        <circle data-name="layer2" cx="48" cy="15" r="4" fill="none" stroke="#202020"
+                stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+                style="stroke:var(--layer1, #202020)"></circle>
+        <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10"
+              stroke-width="2" d="M31.3 21.4l11.3 11.3m-22.6 0l8.5 8.5M25.6 27l5.7 5.7"
+              stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+    </svg>
+</svg>
