@@ -1,4 +1,6 @@
-﻿@{
+﻿@model SuccessMessage;
+
+@{
     ViewData["Title"] = "Added Product Successfully | Task 3 | ASP.NET | aykhan.net";
 }
 
@@ -48,6 +50,6 @@
             <i id="i" class="checkmark">✓</i>
         </div>
         <h1 id="h1">Success</h1>
-        <p id="p">Product was added successfully<br /> <a href="\home" class="m-1">See Products</a></p>
+        <p id="p">@Model.Message<br /> <a href="\home" class="m-1">See Products</a></p>
     </div>
 </div>

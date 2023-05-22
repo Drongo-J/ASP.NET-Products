@@ -38,7 +38,7 @@
                     <div class="position-relative mb-3" style="max-height: 300px; height: 300px; overflow: hidden; display: flex; align-items: center;">
                         <div class="badge text-white bg-"></div>
                         <a href="/home/products/@product.Id" style="overflow: hidden; width: 100%;">
-                            <img class="img-fluid w-100 mx-auto product-image" src="@product.ThumbnailURL" alt="@product.Title" style="display: block; margin: auto;">
+                            <img class="img-fluid w-100 mx-auto product-image" id="@product.Id" src="@product.ThumbnailURL" onerror="replaceImage(@product.Id)" alt="@product.Title" style="display: block; margin: auto;">
                         </a>
                         <div class="product-overlay">
                             <ul class="mb-0 list-inline">
@@ -103,6 +103,7 @@
 <!-- NEWSLETTER-->
 <section class="py-5">
     <div class="container p-0">
+        <div class="row gy-3">
         <div class="row gy-3">
             <div class="col-lg-6">
                 <h5 class="text-uppercase">Let's be friends!</h5>

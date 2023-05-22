@@ -58,7 +58,7 @@ namespace App.Business.Concrete
 
         public void Update(Product product)
         {
-            _productDal.Update(GetById(product.Id));
+            _productDal.Update(product);
         }
     }
 }

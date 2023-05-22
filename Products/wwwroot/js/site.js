@@ -160,3 +160,9 @@ $(document).ready(function()
 
 	   
 });
+
+
+function replaceImage(id) {
+	var imageElement = document.getElementById(id);
+	imageElement.src = "https://res.cloudinary.com/dbriqxpaa/image/upload/v1684756821/asp-net/task3/product-icon-collection-trendy-modern-flat-linear-vector-white-background-thin-line-outline-illustration-130947207_btza8w.jpg";
+}

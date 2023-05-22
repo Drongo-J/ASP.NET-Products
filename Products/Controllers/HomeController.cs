@@ -58,18 +58,54 @@ namespace Products.Controllers
                 return BadRequest();
             }
             _productService.Add(product);
-            return RedirectToAction("success", "home");
+            TempData["SuccessMessage"] = "Product was added successfully!";
+            return RedirectToAction("Success");
         }
 
         [HttpGet]
-        public IActionResult Delete()
+        public IActionResult Delete(int productId)
         {
-            return View();
+            var product = _productService.GetById(productId);
+            if (product == null)
+                return NotFound();
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteProduct(int productId)
+        {
+            var product = _productService.GetById(productId);
+            if (product == null)
+                return BadRequest();
+            _productService.Delete(product.Id);
+            TempData["SuccessMessage"] = "Product was deleted successfully!";
+            return RedirectToAction("Success");
+        }
+
+        [HttpGet]
+        public IActionResult Update(int productId)
+        {
+            var product = _productService.GetById(productId);
+            if (product == null)
+                return NotFound();
+            return View(new UpdateProductViewModel() { Product = product });
+        }
+
+        [HttpPost]
+        public IActionResult UpdateProduct(UpdateProductViewModel productVM)
+        {
+            var product = productVM.Product ;
+            if (product == null)
+                return BadRequest();
+            _productService.Update(product);
+            TempData["SuccessMessage"] = "Product was updated successfully!";
+            return RedirectToAction("Success");
         }
 
         public IActionResult Success()
         {
-            return View(); 
+            var successMessage = TempData["SuccessMessage"]?.ToString();
+            return View(new SuccessMessage(successMessage)); 
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
